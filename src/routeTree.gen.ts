@@ -12,6 +12,7 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as BuscarRouteImport } from './routes/buscar'
 import { Route as CompararRouteImport } from './routes/comparar'
+import { Route as DesignSystemRouteImport } from './routes/design-system'
 import { Route as PersonalShopperRouteImport } from './routes/personal-shopper'
 import { Route as PanelAdminRouteImport } from './routes/panel.admin'
 import { Route as PanelComercianteRouteImport } from './routes/panel.comerciante'
@@ -31,6 +32,11 @@ const BuscarRoute = BuscarRouteImport.update({
 const CompararRoute = CompararRouteImport.update({
   id: '/comparar',
   path: '/comparar',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DesignSystemRoute = DesignSystemRouteImport.update({
+  id: '/design-system',
+  path: '/design-system',
   getParentRoute: () => rootRouteImport,
 } as any)
 const PersonalShopperRoute = PersonalShopperRouteImport.update({
@@ -63,6 +69,7 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/buscar': typeof BuscarRoute
   '/comparar': typeof CompararRoute
+  '/design-system': typeof DesignSystemRoute
   '/personal-shopper': typeof PersonalShopperRoute
   '/panel/admin': typeof PanelAdminRoute
   '/panel/comerciante': typeof PanelComercianteRoute
@@ -73,6 +80,7 @@ export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/buscar': typeof BuscarRoute
   '/comparar': typeof CompararRoute
+  '/design-system': typeof DesignSystemRoute
   '/personal-shopper': typeof PersonalShopperRoute
   '/panel/admin': typeof PanelAdminRoute
   '/panel/comerciante': typeof PanelComercianteRoute
@@ -84,6 +92,7 @@ export interface FileRoutesById {
   '/': typeof IndexRoute
   '/buscar': typeof BuscarRoute
   '/comparar': typeof CompararRoute
+  '/design-system': typeof DesignSystemRoute
   '/personal-shopper': typeof PersonalShopperRoute
   '/panel/admin': typeof PanelAdminRoute
   '/panel/comerciante': typeof PanelComercianteRoute
@@ -96,6 +105,7 @@ export interface FileRouteTypes {
     | '/'
     | '/buscar'
     | '/comparar'
+    | '/design-system'
     | '/personal-shopper'
     | '/panel/admin'
     | '/panel/comerciante'
@@ -106,6 +116,7 @@ export interface FileRouteTypes {
     | '/'
     | '/buscar'
     | '/comparar'
+    | '/design-system'
     | '/personal-shopper'
     | '/panel/admin'
     | '/panel/comerciante'
@@ -116,6 +127,7 @@ export interface FileRouteTypes {
     | '/'
     | '/buscar'
     | '/comparar'
+    | '/design-system'
     | '/personal-shopper'
     | '/panel/admin'
     | '/panel/comerciante'
@@ -127,6 +139,7 @@ export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   BuscarRoute: typeof BuscarRoute
   CompararRoute: typeof CompararRoute
+  DesignSystemRoute: typeof DesignSystemRoute
   PersonalShopperRoute: typeof PersonalShopperRoute
   PanelAdminRoute: typeof PanelAdminRoute
   PanelComercianteRoute: typeof PanelComercianteRoute
@@ -155,6 +168,13 @@ declare module '@tanstack/react-router' {
       path: '/comparar'
       fullPath: '/comparar'
       preLoaderRoute: typeof CompararRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/design-system': {
+      id: '/design-system'
+      path: '/design-system'
+      fullPath: '/design-system'
+      preLoaderRoute: typeof DesignSystemRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/personal-shopper': {
@@ -199,6 +219,7 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   BuscarRoute: BuscarRoute,
   CompararRoute: CompararRoute,
+  DesignSystemRoute: DesignSystemRoute,
   PersonalShopperRoute: PersonalShopperRoute,
   PanelAdminRoute: PanelAdminRoute,
   PanelComercianteRoute: PanelComercianteRoute,
