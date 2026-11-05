@@ -28,3 +28,7 @@ use the editor.
   own key and store it in Secrets.
 - **Secrets.** Lovable manages them. Do not put secret values in the repo.
 <!-- LOVABLE:END -->
+
+## Project rules
+- Brand components live in src/components/lole and demo data in src/data/stores.ts; pages read only from that module so it can later be swapped for a real backend.
+- The centro map is a stylized in-app drawing (store x/y in 0-100), not a map provider, so it works without API keys.
