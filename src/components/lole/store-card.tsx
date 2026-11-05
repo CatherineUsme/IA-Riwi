@@ -11,8 +11,8 @@ export function StoreCard({
   onHover,
 }: {
   store: Store;
-  rank?: number;
-  active?: boolean;
+  rank?: number | undefined;
+  active?: boolean | undefined;
   onHover?: (id?: string) => void;
 }) {
   return (

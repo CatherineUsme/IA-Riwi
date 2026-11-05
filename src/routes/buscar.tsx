@@ -8,12 +8,12 @@ import { categories, rankStores, stores } from "@/data/stores";
 import { seo } from "@/lib/seo";
 import { cn } from "@/lib/utils";
 
-type SearchParams = { q?: string; cat?: string };
+type SearchParams = { q?: string | undefined; cat?: string | undefined };
 
 export const Route = createFileRoute("/buscar")({
   validateSearch: (s: Record<string, unknown>): SearchParams => ({
-    q: typeof s.q === "string" ? s.q : undefined,
-    cat: typeof s.cat === "string" ? s.cat : undefined,
+    q: typeof s["q"] === "string" ? s["q"] : undefined,
+    cat: typeof s["cat"] === "string" ? s["cat"] : undefined,
   }),
   head: () => ({
     meta: seo("Buscar comercios en el centro", "Busca un producto y ve en el mapa del centro de Medellín las tiendas que lo venden, ordenadas por precio-calidad."),

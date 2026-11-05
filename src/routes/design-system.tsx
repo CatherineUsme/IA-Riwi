@@ -97,8 +97,8 @@ function DesignSystem() {
 
         <Section title="Tarjetas y etiquetas">
           <div className="grid gap-4 md:grid-cols-3">
-            <StoreCard store={stores[0]} rank={1} />
-            <StoreCard store={stores[3]} rank={2} />
+            <StoreCard store={stores[0]!} rank={1} />
+            <StoreCard store={stores[3]!} rank={2} />
             <div className="surface space-y-3 p-5">
               <div className="flex flex-wrap gap-2"><Score value={4.6} /><StatusPill status="Aprobado" /><StatusPill status="Pendiente" /><StatusPill status="En camino" /></div>
               <p className="text-sm text-muted-foreground">Superficie: azul profundo, borde bronce al 28%, radio 18px, sombra profunda.</p>

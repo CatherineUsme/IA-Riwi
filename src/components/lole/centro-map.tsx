@@ -19,9 +19,9 @@ export function CentroMap({
   className,
 }: {
   stores: Store[];
-  activeId?: string;
+  activeId?: string | undefined;
   onHover?: (id?: string) => void;
-  className?: string;
+  className?: string | undefined;
 }) {
   const navigate = useNavigate();
   return (
